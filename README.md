@@ -1,1 +1,6 @@
-# Semana 1# Semana1
+# Semana 1
+
+## Integrantes del Equipo
+Gonzalo Morato de Tapia Caro
+Jaime Vado Marín
+Laura Díaz
