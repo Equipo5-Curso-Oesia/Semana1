@@ -13,6 +13,7 @@ struct Character
     std::string origin;
     std::string species;
     std::string status;
+    std::vector<std::string> episodes;
 };
 
 std::vector<Character> parse_characters(const std::string &body)
@@ -42,6 +43,16 @@ std::vector<Character> parse_characters(const std::string &body)
         {
             c.origin = "Desconocido";
         }
+
+        //EPISODIOS
+        for (const auto &urlEpisodio : item["episode"])
+        {
+            auto episodio_response = cpr::Get((
+                cpr::Url{urlEpisodio}));
+            json episodio_json = json::parse(episodio_response.text);
+            c.episodes.push_back(episodio_json.value("name", "Desconocido"));
+        }
+        
 
         characters.push_back(std::move(c));
     }
@@ -118,6 +129,12 @@ int main()
         std::cout << "Planeta (origen): " << c.origin << '\n';
         std::cout << "Especie: " << c.species << '\n';
         std::cout << "Status : " << c.status << '\n';
+        
+        std::cout << "Episodios: " << '\n';
+        for (const auto &nombreEpisodio : c.episodes)
+        {
+            std::cout << nombreEpisodio << '\n';
+        }
         
     }
 
