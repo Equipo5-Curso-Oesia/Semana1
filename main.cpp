@@ -9,22 +9,6 @@ using namespace std;
 
 using json = nlohmann::json;
 
-template <typename S>
-ostream& operator<<(ostream& os, const vector<S>& vector) {
-    // Printing all the elements using <<
-
-    os << "[";
-
-    os << vector.at(0);
-
-    for (auto i{1}; i < vector.size(); i++)
-
-        os<< ", " << vector.at(i) ;
-
-    os << "]";
-
-    return os;
-}
 
 struct Character
 {
@@ -168,11 +152,7 @@ int main()
 
     json j = json::parse(response.text);
 
-    if (!j.contains("name"))
-      cout << " sin nombre" << endl;
-    else 
-
-      cout << " " <<j.value("name", "") << endl;
+    cout << " " << j.value("name", "Desconocido") << endl;
 
   }
 
