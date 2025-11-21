@@ -1,10 +1,12 @@
 # Semana 1
 
+## Equipo Placeholder
+
 ## Integrantes del Equipo
 Gonzalo Morato de Tapia Caro
+
 Jaime Vado Marín
-Laura Díaz
+
 Rodrigo Martínez Ruiz
 
-Prueba commit
-rrr
+
